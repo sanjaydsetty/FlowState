@@ -1,6 +1,9 @@
 # 🎵 FlowState
 
-A full-stack MERN playlist management application that allows users to create playlists, manage songs, and securely access their music collections through JWT-based authentication.
+• Developed a full-stack playlist management application using MongoDB, Express.js, React.js, and Node.js.  
+• Implemented JWT-based authentication with protected routes and bcrypt password hashing.  
+• Designed RESTful APIs for playlist and song management with MongoDB Atlas integration.  
+• Built a responsive user interface using Tailwind CSS with toast notifications and modern dashboard components.
 
 ---
 
