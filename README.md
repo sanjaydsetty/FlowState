@@ -1,180 +1,88 @@
 # 🎵 FlowState
 
-A modern full-stack playlist management application built using the MERN Stack.
-
-FlowState allows users to securely create playlists, manage songs, and organize their music collections through a responsive and intuitive interface.
+A full-stack MERN playlist management application that allows users to create playlists, manage songs, and securely access their music collections through JWT-based authentication.
 
 ---
 
-## 🚀 Live Features
+## 🚀 Features
 
 ### Authentication
-
 - User Registration
 - User Login
 - JWT Authentication
 - Protected Routes
-- Secure Password Hashing using bcrypt
+- Persistent Login Sessions
 
 ### Playlist Management
-
 - Create Playlists
 - View All Playlists
 - Delete Playlists
-- Song Count Display
+- Playlist Song Count
 
 ### Song Management
-
-- Add Songs to Playlists
+- Add Songs
 - View Songs
 - Delete Songs
-- Playlist Details Page
+- Song Metadata Storage
+  - Title
+  - Artist
+  - Album
+  - Duration
 
 ### User Experience
-
-- Modern Dashboard UI
-- Responsive Design
+- Responsive UI
 - Toast Notifications
-- Personalized Welcome Message
-- Confirmation Dialogs
-- Smooth Hover Effects
+- Modern Dark Theme
+- Dashboard Overview
+- Secure API Access
 
 ---
 
 ## 🛠 Tech Stack
 
 ### Frontend
-
 - React.js
 - React Router DOM
 - Axios
 - Tailwind CSS
-- React Hot Toast
 - React Icons
+- React Hot Toast
+- Vite
 
 ### Backend
-
 - Node.js
 - Express.js
-- MongoDB Atlas
-- Mongoose
 - JWT Authentication
 - bcryptjs
+
+### Database
+- MongoDB
+- Mongoose
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-FlowState
+FlowState/
 │
-├── backend
-│   ├── src
-│   │   ├── config
-│   │   ├── controllers
-│   │   ├── middleware
-│   │   ├── models
-│   │   ├── routes
-│   │   └── utils
-│   │
-│   ├── .env
-│   ├── package.json
-│   └── server.js
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
 │
-├── frontend
-│   ├── src
-│   │   ├── api
-│   │   ├── components
-│   │   ├── pages
-│   │   ├── services
-│   │   └── assets
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── routes/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   └── utils/
 │   │
-│   ├── package.json
-│   └── vite.config.js
+│   ├── server.js
+│   └── package.json
 │
 └── README.md
-```
-
----
-
-## 🔐 Authentication Flow
-
-```text
-User Login/Register
-        │
-        ▼
-Backend Validation
-        │
-        ▼
-JWT Token Generated
-        │
-        ▼
-Stored in Local Storage
-        │
-        ▼
-Protected API Requests
-```
-
----
-
-## 🗄 Database Schema
-
-### User
-
-```javascript
-{
-  name,
-  email,
-  password
-}
-```
-
-### Playlist
-
-```javascript
-{
-  name,
-  user
-}
-```
-
-### Song
-
-```javascript
-{
-  title,
-  artist,
-  album,
-  duration,
-  playlist
-}
-```
-
----
-
-## API Endpoints
-
-### Authentication
-
-```http
-POST /api/auth/register
-POST /api/auth/login
-```
-
-### Playlists
-
-```http
-GET    /api/playlists
-POST   /api/playlists
-GET    /api/playlists/:id
-DELETE /api/playlists/:id
-```
-
-### Songs
-
-```http
-POST   /api/songs/:playlistId
-DELETE /api/songs/:songId
 ```
 
 ---
@@ -184,16 +92,19 @@ DELETE /api/songs/:songId
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/FlowState.git
+git clone https://github.com/sanjaydsetty/FlowState.git
+```
 
+```bash
 cd FlowState
 ```
 
-### Backend Setup
+---
+
+## Backend Setup
 
 ```bash
 cd backend
-
 npm install
 ```
 
@@ -201,13 +112,11 @@ Create a `.env` file:
 
 ```env
 PORT=5000
-
-MONGO_URI=YOUR_MONGODB_CONNECTION_STRING
-
+MONGO_URI=YOUR_MONGODB_URI
 JWT_SECRET=YOUR_SECRET_KEY
 ```
 
-Start Backend:
+Run backend:
 
 ```bash
 npm run dev
@@ -215,42 +124,67 @@ npm run dev
 
 ---
 
-### Frontend Setup
+## Frontend Setup
 
 ```bash
 cd frontend
-
 npm install
+```
 
+Run frontend:
+
+```bash
 npm run dev
 ```
 
 ---
 
-## Future Enhancements
+## API Endpoints
 
-- Edit Playlist
-- Edit Song
-- Playlist Cover Images
-- Music Streaming API Integration
-- Drag & Drop Playlist Reordering
-- Search and Filter Songs
-- User Profile Page
+### Authentication
+
+| Method | Endpoint | Description |
+|----------|----------|----------|
+| POST | /api/auth/register | Register User |
+| POST | /api/auth/login | Login User |
+
+### Playlists
+
+| Method | Endpoint | Description |
+|----------|----------|----------|
+| GET | /api/playlists | Get User Playlists |
+| POST | /api/playlists | Create Playlist |
+| GET | /api/playlists/:id | Get Playlist Details |
+| DELETE | /api/playlists/:id | Delete Playlist |
+
+### Songs
+
+| Method | Endpoint | Description |
+|----------|----------|----------|
+| POST | /api/songs/:playlistId | Add Song |
+| DELETE | /api/songs/:songId | Delete Song |
 
 ---
 
-## Learning Outcomes
+## 🔒 Security Features
 
-This project helped strengthen understanding of:
+- Password Hashing using bcryptjs
+- JWT Authentication
+- Protected Backend Routes
+- User-specific Playlist Access
+- Environment Variable Protection
 
-- REST API Design
-- Authentication and Authorization
-- JWT Security
-- MongoDB Data Modeling
-- React State Management
-- MERN Stack Architecture
-- Tailwind CSS
-- Full-Stack Deployment
+---
+
+## 🎯 Future Improvements
+
+- Playlist Editing
+- Song Editing
+- Search & Filter
+- Playlist Cover Images
+- Drag-and-Drop Song Ordering
+- Music Streaming Integration
+- User Profile Management
 
 ---
 
